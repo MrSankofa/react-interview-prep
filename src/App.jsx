@@ -32,7 +32,12 @@ const App = () => {
       })
     );
 
+  }
 
+  const deleteTodo = (id) => {
+    setTodos( prevState =>
+      prevState.filter( todo => todo.id !== id)
+    );
   }
 
   return (
@@ -40,7 +45,7 @@ const App = () => {
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <Header/>
         <h2>Todo List</h2>
-        <TodoList todos={todos} toggleTodo={toggleTodo}/>
+        <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo}/>
         <Footer/>
       </div>
     </ThemeProvider>
