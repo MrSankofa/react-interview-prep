@@ -16,11 +16,25 @@ const App = () => {
     { id:2,  todoText: "Wash the dishes", completed: false},
   ]);
 
+  const toggleTodo = (id) => {
+
+    setTodos( prevState =>
+      prevState.map( todo => {
+        if (todo.id == id) {
+          return { ...todo, completed: !todo.completed}
+        }
+
+        return todo
+      })
+    );
+
+
+  }
 
   return (
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <h2>Todo List</h2>
-        <TodoList todos={todos}></TodoList>
+        <TodoList todos={todos} toggleTodo={toggleTodo}></TodoList>
       </div>
   );
 };
