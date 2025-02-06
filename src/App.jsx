@@ -9,6 +9,7 @@ import TodoList from "./components/TodoList.jsx";
 import Header from "./components/Header.jsx";
 import { ThemeProvider} from "./context/ThemeContext.jsx";
 import Footer from "./components/Footer.jsx";
+import TodoForm from "./components/TodoForm.jsx";
 
 const App = () => {
 
@@ -40,10 +41,19 @@ const App = () => {
     );
   }
 
+  const addTodo = (todoText) => {
+    setTodos( prevState => [...prevState, {
+      id: Date.now(),
+      todoText: todoText,
+      completed: false
+    }])
+  }
+
   return (
     <ThemeProvider>
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <Header/>
+        <TodoForm addTodo={addTodo}/>
         <h2>Todo List</h2>
         <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo}/>
         <Footer/>
