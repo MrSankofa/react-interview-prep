@@ -6,6 +6,7 @@
 
 import {useState} from "react";
 import TodoList from "./components/TodoList.jsx";
+import TodoForm from "./components/TodoForm.jsx";
 
 const App = () => {
 
@@ -37,8 +38,17 @@ const App = () => {
     );
   }
 
+  const addTodo = (todoText) => {
+    setTodos( prevState => [...prevState, {
+      todoText,
+      id: Date.now(),
+      completed: false
+    }])
+  }
+
   return (
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
+        <TodoForm addTodo={addTodo}/>
         <h2>Todo List</h2>
         <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
       </div>
