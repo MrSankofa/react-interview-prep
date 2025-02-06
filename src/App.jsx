@@ -7,6 +7,9 @@
 import {useState} from "react";
 import TodoList from "./components/TodoList.jsx";
 import TodoForm from "./components/TodoForm.jsx";
+import {ThemeProvider} from "./context/ThemeContext.jsx";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
 
@@ -47,11 +50,15 @@ const App = () => {
   }
 
   return (
+    <ThemeProvider>
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
+        <Header/>
         <TodoForm addTodo={addTodo}/>
         <h2>Todo List</h2>
         <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
+        <Footer/>
       </div>
+    </ThemeProvider>
   );
 };
 
