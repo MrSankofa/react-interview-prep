@@ -8,6 +8,7 @@ import {useState} from "react";
 import TodoList from "./components/TodoList.jsx";
 import Header from "./components/Header.jsx";
 import { ThemeProvider} from "./context/ThemeContext.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
         <Header/>
         <h2>Todo List</h2>
         <TodoList todos={todos} toggleTodo={toggleTodo}/>
+        <Footer/>
       </div>
     </ThemeProvider>
   );
