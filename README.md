@@ -29,6 +29,11 @@ if the button is not complete change the text to complete
 the header should use the context api because we need global state to apply 
 the theme
 
+Header needs a title
+a button to toggle the theme
+and it needs to change the styling for the entire app
+
+
 the styling for the header can be like this
 
 ```html
