@@ -7,13 +7,11 @@ export const Header = () => {
 
     return (
         <header style={{background: theme === "light" ? "white" : "black"}}>
-            <h1>Theme Changer</h1>
+            <h1 style={{color: theme === "light" ? "black" : "white"}}>Theme Changer</h1>
 
             <button onClick={toggleTheme} style={{color: theme === "light" ? "black" : "white", background: theme === "light" ? "white" : "black" }}>
                 Toggle Theme (Current: {theme})
             </button>
-
         </header>
-
     );
 }

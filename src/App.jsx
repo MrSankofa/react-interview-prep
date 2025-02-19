@@ -6,16 +6,14 @@
 
 import { Header } from "./components/Header";
 import { ThemeProvider } from "./global/ThemeContext";
+import { ThemedApp } from "./components/ThemeApp";
 
 const App = () => {
 
 
   return (
     <ThemeProvider>
-      <Header/>
-      <div style={{ margin: '0 auto', maxWidth: '600px' }}>
-        <h2>Todo List</h2>
-      </div>
+      <ThemedApp/>
     </ThemeProvider>
   );
 };
