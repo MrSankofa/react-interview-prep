@@ -4,7 +4,6 @@
 * create a TodoForm and TodoList complete to show CRUD functionality
 * */
 
-import { Header } from "./components/Header";
 import { ThemeProvider } from "./global/ThemeContext";
 import { ThemedApp } from "./components/ThemeApp";
 
