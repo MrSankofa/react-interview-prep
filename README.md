@@ -26,7 +26,7 @@ if the button is not complete change the text to complete
 
 **the Header:**
 
-the header should use the context api because we need global state to apply 
+the header should use the context api because we need global state to apply
 the theme
 
 Header needs a title
@@ -48,17 +48,17 @@ you should be able to toggle the theme with a button
 the foot should include the same theme ability as the header
 
 ```html
- <footer
-      style={{
-        padding: '1rem',
-        background: theme === 'light' ? '#f0f0f0' : '#333',
-        color: theme === 'light' ? '#333' : '#f0f0f0',
-        textAlign: 'center',
-        marginTop: '2rem'
-      }}
-    >
-      <p>&copy; {new Date().getFullYear()} React Fundamentals Demo</p>
-    </footer>
+ <footer 
+        style={{
+            padding: '1rem',
+    background: theme === 'light' ? '#f0f0f0' : '#333',
+    color: theme === 'light' ? '#333' : '#f0f0f0',
+    textAlign: 'center',
+    marginTop: '2rem'
+    }}
+>
+<p>&copy; {new Date().getFullYear()} React Fundamentals Demo</p>
+</footer>
 ```
 
 
