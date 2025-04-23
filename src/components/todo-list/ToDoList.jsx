@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
+import {useContext} from "react";
+import {ThemeContext} from "../../global/ThemeContext.jsx";
 
 
 const ToDoList = ({todos, toggleCompleted, deleteTodo}) => {
 
-
+  const { theme } = useContext(ThemeContext);
   return (
     <>
-      <h2>Todo List</h2>
-      <ul>
+      <h2 style={{ padding: '1rem', background: theme === 'light' ? '#f0f0f0' : '#333', color: theme === 'light' ? '#333' : '#f0f0f0' }}>Todo List</h2>
+      <ul style={{ padding: '1rem', background: theme === 'light' ? '#f0f0f0' : '#333', color: theme === 'light' ? '#333' : '#f0f0f0' }}>
         {
           todos.map( todo => {
             return (
