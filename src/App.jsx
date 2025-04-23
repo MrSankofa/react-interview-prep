@@ -43,12 +43,16 @@ const App = () => {
     console.log("Todos: ", todos);
   }
 
+  const deleteTodo = (todoId) => {
+    setTodos( prev => prev.filter( todo => todo.id !== todoId));
+  }
+
   return (
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
 
         <Header/>
         <ToDoForm addTodo={addTodo}/>
-        <ToDoList todos={todos} toggleCompleted={toggleCompleted}/>
+        <ToDoList todos={todos} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo}/>
       </div>
   );
 };

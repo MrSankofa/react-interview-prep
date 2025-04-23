@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 
-const ToDoList = ({todos, toggleCompleted}) => {
+const ToDoList = ({todos, toggleCompleted, deleteTodo}) => {
 
 
   return (
@@ -11,7 +11,7 @@ const ToDoList = ({todos, toggleCompleted}) => {
         {
           todos.map( todo => {
             return (
-              <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}> {todo["text"]} <button onClick={() => toggleCompleted(todo.id)}>{ todo.completed ? 'incomplete' : 'completed'}</button> <button>delete</button></li>
+              <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}> {todo["text"]} <button onClick={() => toggleCompleted(todo.id)}>{ todo.completed ? 'incomplete' : 'completed'}</button> <button onClick={ () => deleteTodo(todo.id)}>delete</button></li>
             )
           })
         }
@@ -27,7 +27,8 @@ ToDoList.propTypes = {
       text: PropTypes.string.isRequired
     })
   ).isRequired,
-  toggleCompleted: PropTypes.func.isRequired
+  toggleCompleted: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 }
 
 export default  ToDoList;
