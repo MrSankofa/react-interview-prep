@@ -1,18 +1,21 @@
 import {useContext, useState} from "react";
 import PropTypes from "prop-types";
 import {ThemeContext} from "../../global/ThemeContext.jsx";
+import {useDispatch} from "react-redux";
+import {addTodo} from "../../features/todos/todosSlice.js";
 
 
-const ToDoForm = ({addTodo}) => {
+const ToDoForm = () => {
   const [input, setInput] = useState('');
   const { theme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if( !input.trim()) return;
 
-    addTodo(input);
+    dispatch(addTodo(input));
     setInput('')
   }
   return (

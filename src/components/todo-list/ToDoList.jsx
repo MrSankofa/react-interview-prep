@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 import {useContext} from "react";
 import {ThemeContext} from "../../global/ThemeContext.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {deleteTodo, toggleCompleted} from "../../features/todos/todosSlice.js";
 
 
-const ToDoList = ({todos, toggleCompleted, deleteTodo}) => {
+const ToDoList = () => {
+
+  const todos = useSelector(state => state.todos);
+  const dispatch = useDispatch();
 
   const { theme } = useContext(ThemeContext);
   return (
@@ -13,7 +18,7 @@ const ToDoList = ({todos, toggleCompleted, deleteTodo}) => {
         {
           todos.map( todo => {
             return (
-              <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}> {todo["text"]} <button onClick={() => toggleCompleted(todo.id)}>{ todo.completed ? 'incomplete' : 'completed'}</button> <button onClick={ () => deleteTodo(todo.id)}>delete</button></li>
+              <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}> {todo["text"]} <button onClick={() => dispatch(toggleCompleted(todo.id))}>{ todo.completed ? 'incomplete' : 'completed'}</button> <button onClick={ () => dispatch(deleteTodo(todo.id))}>delete</button></li>
             )
           })
         }
