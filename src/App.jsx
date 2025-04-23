@@ -31,12 +31,24 @@ const App = () => {
     setTodos(prev => [...prev, newTodo]);
   }
 
+  const toggleCompleted = (todoId) => {
+    setTodos( prev => prev.map( todo => {
+      if(todo.id === todoId) {
+        return {...todo, completed: !todo.completed };
+      }
+      return todo;
+      }
+    ))
+
+    console.log("Todos: ", todos);
+  }
+
   return (
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
 
         <Header/>
         <ToDoForm addTodo={addTodo}/>
-        <ToDoList todos={todos}/>
+        <ToDoList todos={todos} toggleCompleted={toggleCompleted}/>
       </div>
   );
 };
